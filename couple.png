@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Yuvraj ❤️ Riya Valentine</title>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: url("couple.png") no-repeat center center/cover;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.85);
+      padding: 25px;
+      width: 90%;
+      max-width: 500px;
+      border-radius: 20px;
+      text-align: center;
+      box-shadow: 0 0 25px rgba(0,0,0,0.3);
+    }
+
+    h1 {
+      font-size: 32px;
+      color: #e6005c;
+    }
+
+    p {
+      font-size: 20px;
+      color: #222;
+    }
+
+    input {
+      width: 90%;
+      padding: 12px;
+      font-size: 18px;
+      border-radius: 10px;
+      border: 2px solid pink;
+      margin-top: 10px;
+    }
+
+    button {
+      margin-top: 15px;
+      padding: 12px 20px;
+      font-size: 20px;
+      border: none;
+      border-radius: 12px;
+      background: #ff2e75;
+      color: white;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #d40055;
+    }
+
+    .naruto {
+      margin-top: 15px;
+      font-size: 22px;
+      color: green;
+      font-weight: bold;
+      display: none;
+      animation: pop 0.6s ease;
+    }
+
+    @keyframes pop {
+      from {transform: scale(0.5); opacity: 0;}
+      to {transform: scale(1); opacity: 1;}
+    }
+
+    .finalmsg {
+      font-size: 18px;
+      color: #111;
+      margin-top: 15px;
+      white-space: pre-line;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Romantic Music -->
+  <audio autoplay loop>
+    <source src="song.mp3" type="audio/mpeg">
+  </audio>
+
+  <div class="card">
+    <h1>💖 Hinata's Valentine Questions 💖</h1>
+
+    <p id="question"></p>
+
+    <input type="text" id="answer" placeholder="Type your answer...">
+
+    <button onclick="nextQuestion()">Submit ❤️</button>
+
+    <div class="naruto" id="narutoReact">Naruto: WOW 👏🏻 Amazing answer Yuvraj!!</div>
+
+    <p class="finalmsg" id="finalMessage"></p>
+  </div>
+
+  <script>
+    let questions = [
+      "1) Tumhare liye perfect love ka matlab kya hai?",
+      "2) Agar tum apne special person ko ek line bol sako, toh kya bolte?",
+      "3) Dream date choose karni ho toh mere sath karoge ya Riya ke sath? 😏❤️"
+    ];
+
+    let current = 0;
+
+    document.getElementById("question").innerText = questions[current];
+
+    function nextQuestion() {
+      let ans = document.getElementById("answer").value;
+
+      if(ans.trim() === "") {
+        alert("Answer likho na baby 😭❤️");
+        return;
+      }
+
+      // Naruto reaction show
+      let naruto = document.getElementById("narutoReact");
+      naruto.style.display = "block";
+
+      setTimeout(() => {
+        naruto.style.display = "none";
+      }, 2000);
+
+      document.getElementById("answer").value = "";
+
+      current++;
+
+      if(current < questions.length) {
+        document.getElementById("question").innerText = questions[current];
+      } else {
+        document.getElementById("question").innerText =
+          "💝 Hinata: Answers complete! Now final surprise...";
+
+        document.getElementById("finalMessage").innerText =
+`pyaare babyy mere yuv 👀❤️
+
+I LOVE YOU isliye nahi ki tum ache dekte ho smart ho...
+me tumse isliye pyar karti hun cz tumhara pyara sa nature bacchon wala 😭❤️
+
+Tumhari caring, efforts, aur love mujhe bhout special feel karvate hain 🤌
+
+Jitni comfortable main tumhare sath hun utani kisi ke sath nahi hun 😭❤️
+
+Yeh Valentine bas ek moka tha tumpe pyaar barsane ka 😂❤️
+
+Thank you so much mere husband 👀❤️
+
+(Yuvraj, humra dil sirf tohare khatir dhadke la 😭😂❤️)
+
+Mmmmmwaaaaaaahhhhh 😘💖`;
+
+        document.getElementById("answer").style.display = "none";
+      }
+    }
+  </script>
+
+</body>
+</html>
